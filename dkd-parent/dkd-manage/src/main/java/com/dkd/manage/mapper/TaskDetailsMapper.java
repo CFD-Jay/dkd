@@ -11,6 +11,13 @@ import com.dkd.manage.domain.TaskDetails;
  */
 public interface TaskDetailsMapper 
 {
+
+    /**
+     * 批量新增工单详情
+     * @param taskDetailsList
+     * @return
+     */
+    public int insertTaskDetailsBatch(List<TaskDetails> taskDetailsList);
     /**
      * 查询工单详情
      * 

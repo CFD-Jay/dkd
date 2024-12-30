@@ -3,6 +3,7 @@ package com.dkd.manage.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dkd.common.constant.DkdContants;
 import com.dkd.manage.domain.VendingMachine;
 import com.dkd.manage.service.IVendingMachineService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -107,18 +108,45 @@ public class EmpController extends BaseController
         return toAjax(empService.deleteEmpByIds(ids));
     }
 
+    /**
+     * 根据设备编号查询运营人员列表
+     * @param innerCode
+     * @return
+     */
 
-    @PreAuthorize("@ss.hasPermi('manage:emp:remove')")
+    @PreAuthorize("@ss.hasPermi('manage:emp:list')")
     @GetMapping("/businessList/{innerCode}")
     public AjaxResult selectBusinessList(@PathVariable("innerCode") String innerCode)
     {
 
-        return null;
-//    	VendingMachine vendingMachine =vendingMachineService.selectRegionIdByInnerCode(innerCode);
-//        Long regionId = vendingMachine.getRegionId();
-//
+    	VendingMachine vendingMachine =vendingMachineService.selectRegionIdByInnerCode(innerCode);
+        if(vendingMachine==null)
+            return error("该设备不存在！");
+        Long regionId = vendingMachine.getRegionId();
+        Emp emp=new Emp();
+        emp.setRegionId(regionId);emp.setStatus(1L);emp.setRoleCode(DkdContants.ROLE_CODE_BUSINESS);//运营人员编码1002
+        List<Emp> emps = empService.selectEmpList(emp);
+        return success(emps);
+    }
 
+    /**
+     * 根据设备编号查询运维人员列表
+     * @param innerCode
+     * @return
+     */
+    @PreAuthorize("@ss.hasPermi('manage:emp:list')")
+    @GetMapping("/operationList/{innerCode}")
+    public AjaxResult selectOperationList(@PathVariable("innerCode") String innerCode)
+    {
 
+        VendingMachine vendingMachine =vendingMachineService.selectRegionIdByInnerCode(innerCode);
+        if(vendingMachine==null)
+            return error("该设备不存在！");
+        Long regionId = vendingMachine.getRegionId();
+        Emp emp=new Emp();
+        emp.setRegionId(regionId);emp.setStatus(1L);emp.setRoleCode(DkdContants.ROLE_CODE_OPERATOR);//运维人员编码1003
+        List<Emp> emps = empService.selectEmpList(emp);
+        return success(emps);
     }
 
 }

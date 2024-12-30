@@ -19,6 +19,11 @@ public class TaskDetailsServiceImpl implements ITaskDetailsService
     @Autowired
     private TaskDetailsMapper taskDetailsMapper;
 
+    @Override
+    public int insertTaskDetailsBatch(List<TaskDetails> taskDetailsList) {
+        return taskDetailsMapper.insertTaskDetailsBatch(taskDetailsList);
+    }
+
     /**
      * 查询工单详情
      * 

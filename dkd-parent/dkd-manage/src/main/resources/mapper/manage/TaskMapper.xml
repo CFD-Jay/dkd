@@ -87,6 +87,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
               and  product_type_id =2
             </if>
         </where>
+        order by create_time desc
 
 
 

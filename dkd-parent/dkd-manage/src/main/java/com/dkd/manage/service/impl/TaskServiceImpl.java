@@ -16,7 +16,7 @@ import com.dkd.manage.service.ITaskService;
  * @date 2024-12-29
  */
 @Service
-public class TaskServiceImpl implements ITaskService 
+public class TaskServiceImpl implements ITaskService
 {
     @Autowired
     private TaskMapper taskMapper;
@@ -98,5 +98,18 @@ public class TaskServiceImpl implements ITaskService
     @Override
     public List<TaskVo> selectTaskVoList(Task task) {
         return taskMapper.selectTaskVoList(task);
+    }
+
+    /**
+     * 新增运营、运维工单
+     * @param taskVo
+     * @return
+     */
+    @Override
+    public int insertTaskVo(TaskVo taskVo) {
+
+
+
+        return 0;
     }
 }

@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectTaskDetailsList" parameterType="TaskDetails" resultMap="TaskDetailsResult">
         <include refid="selectTaskDetailsVo"/>
-        <where>  
+        <where>
             <if test="taskId != null "> and task_id = #{taskId}</if>
             <if test="channelCode != null  and channelCode != ''"> and channel_code = #{channelCode}</if>
             <if test="expectCapacity != null "> and expect_capacity = #{expectCapacity}</if>
@@ -29,7 +29,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="skuImage != null  and skuImage != ''"> and sku_image = #{skuImage}</if>
         </where>
     </select>
-    
+
+    <insert id="insertTaskDetailsBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="detailsId">
+        insert into tb_task_details (task_id, channel_code, expect_capacity, sku_id, sku_name, sku_image)
+        values
+        <foreach collection="list" item="taskDetail" separator=",">
+            (#{taskDetail.taskId}, #{taskDetail.channelCode}, #{taskDetail.expectCapacity}, #{taskDetail.skuId}, #{taskDetail.skuName}, #{taskDetail.skuImage})
+        </foreach>
+    </insert>
+
     <select id="selectTaskDetailsByDetailsId" parameterType="Long" resultMap="TaskDetailsResult">
         <include refid="selectTaskDetailsVo"/>
         where details_id = #{detailsId}

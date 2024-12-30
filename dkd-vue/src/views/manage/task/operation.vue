@@ -152,6 +152,7 @@
             v-model="form.productTypeId"
             placeholder="请选择工单类型"
             clearable
+            @click="getTaskTypeList"
           >
             <el-option
               v-for="dict in taskTypeList"

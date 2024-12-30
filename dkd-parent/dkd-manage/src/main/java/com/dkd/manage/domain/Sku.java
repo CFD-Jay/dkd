@@ -19,7 +19,7 @@ import com.dkd.common.core.domain.BaseEntity;
  */
 
 /**
- * @@@集成的EasyExcel 在处理大文件excel时，会自动分批处理，不会一次性全部加载到内存，可以解决内存溢出的问题。
+ * @@@2、集成的EasyExcel 在处理大文件excel时，会自动分批处理，不会一次性全部加载到内存，可以解决内存溢出的问题。
  * 具体实现方法见若依官网http://doc.ruoyi.vip/ruoyi/document/cjjc.html#%E9%9B%86%E6%88%90easyexcel%E5%AE%9E%E7%8E%B0excel%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%BC%BA
  */
 

@@ -67,4 +67,12 @@ public interface ITaskService
      */
     List<TaskVo> selectTaskVoList(Task task);
 
+    /**
+     * 新增运营、运维工单
+     * @param taskVo
+     * @return
+     */
+    int insertTaskVo(TaskVo taskVo);
+
+
 }

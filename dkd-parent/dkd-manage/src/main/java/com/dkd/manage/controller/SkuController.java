@@ -111,7 +111,7 @@ public class SkuController extends BaseController
     }
 
     /**
-     * @@@excel文件上传
+     * @@@2、excel文件上传
      */
     @PreAuthorize("@ss.hasPermi('manage:sku:add')")
     @Log(title = "商品管理", businessType = BusinessType.INSERT)
