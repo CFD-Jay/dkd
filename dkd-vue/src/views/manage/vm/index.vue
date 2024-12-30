@@ -88,6 +88,8 @@
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template #default="scope">
+          <el-button link type="primary" @click="handleGoods(scope.row)" v-hasPermi="['manage:vm:edit']">货道</el-button>
+          <el-button link type="primary"  @click="handlePolicy(scope.row)" v-hasPermi="['manage:vm:edit']">策略</el-button>
           <el-button link type="primary"  @click="handleUpdate(scope.row)" v-hasPermi="['manage:vm:edit']">修改</el-button>
          </template>
       </el-table-column>
@@ -149,7 +151,7 @@
           <el-input v-model="form.channelMaxCapacity" disabled />
         </el-form-item>
 
-        <!--@@@通用模板-->
+
         <el-form-item label="合作商" prop="partnerId" v-if="!addOrEdit">
           <el-input
               :value="partnerList.find(item => item.id === form.partnerId)?.partnerName || ''"
@@ -171,6 +173,38 @@
         </div>
       </template>
     </el-dialog>
+    <el-dialog :title="title" v-model="handlePolicyOpen" width="500px" append-to-body >
+      <el-form ref="vmRef" :model="form" :rules="rules" label-width="80px">
+     
+      <span>选择策略</span>
+       <el-select
+        placeholder="请选择策略"
+        clearable
+        style="width: 100%"
+        v-model="form.policyId"
+          >
+       <el-option
+        v-for="item in policyList"
+        :key="item.policyId"
+        :label="item.policyName"
+        :value="item.policyId"
+        />
+  </el-select>
+</el-form>
+   <template #footer>
+        <div class="dialog-footer">
+          <el-button type="primary" @click="submitForm">确 定</el-button>
+          <el-button @click="cancel">取 消</el-button>
+        </div>
+      </template>
+    </el-dialog>
+
+
+
+    <!-- 货道组件 -->
+    <ChannelDialog :goodVisible="goodVisible" :goodData="goodData" @handleCloseGood="handleCloseGood"></ChannelDialog>
+    <!-- end -->
+
   </div>
 </template>
 
@@ -188,6 +222,7 @@ import {listPartner} from "@/api/manage/partner";
 import {loadAllParams} from "@/api/page";
 import {listNode} from "@/api/manage/node";
 import {listRegion} from "@/api/manage/region";
+import {listPolicy} from "@/api/manage/policy";
 import { get } from "@vueuse/core";
 import { ref } from "vue";
 const { proxy } = getCurrentInstance();
@@ -242,6 +277,7 @@ function getList() {
 // 取消按钮
 function cancel() {
   open.value = false;
+  handlePolicyOpen.value=false;
   reset();
 }
 
@@ -269,7 +305,28 @@ function reset() {
   };
   proxy.resetForm("vmRef");
 }
+const policyList = ref([]);
+const handlePolicyOpen = ref(false);
+/**分配策略 */
+function handlePolicy(row) {
+ 
+  reset();
+  const _id = row.id || ids.value
+  getVm(_id).then(response => {
+    form.value = response.data;
+  });
 
+  handlePolicyOpen.value=true;
+  const _policyId = row.policyId
+  listPolicy(loadAllParams).then(response => {
+    policyList.value = response.rows;
+    total.value = response.total;
+    title.value="策略管理"
+    
+  });
+ //  console.log(JSON.stringify(policyList,null,2))
+  
+}
 /** 搜索按钮操作 */
 function handleQuery() {
   queryParams.value.pageNum = 1;
@@ -307,7 +364,9 @@ function handleUpdate(row) {
     form.value = response.data;
     open.value = true;
     title.value = "修改设备管理";
+    console.log(JSON.stringify(form,null,2))
   });
+  
 }
 
 /** 提交按钮 */
@@ -318,6 +377,7 @@ function submitForm() {
         updateVm(form.value).then(response => {
           proxy.$modal.msgSuccess("修改成功");
           open.value = false;
+          handlePolicyOpen.value=false;
           getList();
         });
       } else {
@@ -378,4 +438,22 @@ getPartnerList();
 getNodeList();
 getRegionList();
 getList();
+
+// ********************货道********************
+// 货道组件
+import ChannelDialog from './components/ChannelDialog.vue';
+const goodVisible = ref(false); //货道弹层显示隐藏
+const goodData = ref({}); //货道信息用来拿取 vmTypeId和innerCode
+// 打开货道弹层
+const handleGoods = (row) => {
+  goodVisible.value = true;
+  goodData.value = row;
+};
+// 关闭货道弹层
+const handleCloseGood = () => {
+  goodVisible.value = false;
+};
+// ********************货道end********************
+
 </script>
+<style lang="scss" scoped src="./index.scss"></style>

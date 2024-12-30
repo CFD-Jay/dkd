@@ -1,17 +1,16 @@
 package com.dkd.manage.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.dkd.common.utils.DateUtils;
+import com.dkd.manage.domain.Dto.ChannelConfigDto;
+import com.dkd.manage.domain.Vo.ChannelVo;
+import com.dkd.manage.service.impl.ChannelServiceImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.dkd.common.annotation.Log;
 import com.dkd.common.core.controller.BaseController;
 import com.dkd.common.core.domain.AjaxResult;
@@ -33,6 +32,8 @@ public class ChannelController extends BaseController
 {
     @Autowired
     private IChannelService channelService;
+    @Autowired
+    private ChannelServiceImpl channelServiceImpl;
 
     /**
      * 查询售货机货道列表
@@ -100,5 +101,47 @@ public class ChannelController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(channelService.deleteChannelByIds(ids));
+    }
+
+    /**
+     * 根据售货机编号查询货道信息和商品信息
+     */
+    @GetMapping("/list/{innerCode}")
+    @PreAuthorize("@ss.hasPermi('manage:channel:list')")
+    //@Log(title = "售货机货道", businessType = BusinessType.DELETE)
+    public AjaxResult getInfoByInnerCode(@PathVariable("innerCode") String innerCode)
+    {
+        List<ChannelVo> channelVos = channelService.selectChannelVoListByInnerCode(innerCode);
+
+        return  success(channelVos);
+    }
+
+    /**
+     * 货道新增商品信息
+     */
+    @PutMapping("/config")
+    @PreAuthorize("@ss.hasPermi('manage:channel:add')")
+    @Log(title = "售货机货道", businessType = BusinessType.INSERT)
+    public AjaxResult config(@RequestBody ChannelConfigDto channels)
+    {
+
+        //判断哪些是真正修改了skuId的,再更改其update_time
+        List<Channel> newList = channels.getChannelList();
+        List<Channel> orginList = channelService.selectByInnerCode(channels.getInnerCode());
+        List<Channel> changeList=new ArrayList<>();
+        for(int i=0;i<newList.size();i++)
+           {
+               Channel newOne=newList.get(i);   Channel orginOne=orginList.get(i);
+               if(!newList.get(i).getSkuId().equals(orginOne.getSkuId()))
+               {
+                   newOne.setUpdateTime(DateUtils.getNowDate());
+                   changeList.add(newOne);
+               }
+
+           }
+        if(changeList.size()>0)
+           channelService.updateChannelMessage(changeList);
+
+        return  success("修改成功！");
     }
 }

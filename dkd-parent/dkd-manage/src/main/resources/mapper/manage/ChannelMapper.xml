@@ -17,6 +17,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateTime"    column="update_time"    />
     </resultMap>
 
+
+
+    <!--@@@
+    mybatis的嵌套查询，业务需求是通过innerCode在tb_channel中查询所有的货道信息，再通过每条货道信息的sku_id字段在tb_sku
+    表中查询相应的sku信息，将完整的sku信息和货道信息封装到channelVo中，返回List<channelVo>
+    类似的nodeMapper.xml也有
+    <association>是一对一关系，因为一个货道对应一个商品，所以用association
+    -->
+    <resultMap id="ChannelVoResultMap" type="com.dkd.manage.domain.Vo.ChannelVo">
+        <id property="id" column="id" />
+        <result property="channelCode" column="channel_code" />
+        <result property="skuId" column="sku_id" />
+        <result property="vmId" column="vm_id" />
+        <result property="innerCode" column="inner_code" />
+        <result property="maxCapacity" column="max_capacity" />
+        <result property="currentCapacity" column="current_capacity" />
+        <result property="lastSupplyTime" column="last_supply_time" />
+        <result property="createTime" column="create_time" />
+        <result property="updateTime" column="update_time" />
+        <association property="sku" javaType="com.dkd.manage.domain.Sku"  column="sku_id" select="com.dkd.manage.mapper.SkuMapper.selectSkuBySkuId">
+        </association>
+    </resultMap>
+    <select id="selectChannelVoListByInnerCode" resultMap="ChannelVoResultMap">
+        SELECT
+            c.*
+        FROM
+            tb_channel c
+                LEFT JOIN tb_sku s ON c.sku_id = s.sku_id
+        WHERE
+            c.inner_code = #{innerCode}
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
     <sql id="selectChannelVo">
         select id, channel_code, sku_id, vm_id, inner_code, max_capacity, current_capacity, last_supply_time, create_time, update_time from tb_channel
     </sql>
@@ -88,6 +131,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </foreach>
     </insert>
 
+
+    <select id="selectBySkuIds" resultType="int">
+        select count(*)
+        from tb_channel c
+        where c.sku_id in
+        <foreach item="skuId" index="index" collection="array" open="(" separator="," close=")">
+            #{skuId}
+        </foreach>
+    </select>
+
+
+    <select id="selectByInnerCode" resultType="com.dkd.manage.domain.Channel">
+        select
+            c.*
+        from tb_channel c
+        where
+            c.inner_code=#{innerCode}
+        order by c.channel_code
+    </select>
+
+
     <update id="updateChannel" parameterType="Channel">
         update tb_channel
         <trim prefix="SET" suffixOverrides=",">
@@ -104,6 +168,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
+
+    <update id="updateChannelMessage" parameterType="java.util.List">
+        <foreach collection="list" item="channel" separator=";">
+            UPDATE tb_channel
+            set sku_id=#{channel.skuId},update_time=#{channel.updateTime}
+            WHERE inner_code = #{channel.innerCode}
+            AND channel_code = #{channel.channelCode}
+        </foreach>
+    </update>
     <delete id="deleteChannelById" parameterType="Long">
         delete from tb_channel where id = #{id}
     </delete>
@@ -114,4 +187,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+
+
+
 </mapper>

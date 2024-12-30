@@ -33,8 +33,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateBy"    column="update_by"    />
         <result property="remark"    column="remark"    />
         <result property="vmCount" column="vm_count"/>
-
-
         <!--@@@-->
         <!--多表联合嵌套查询-->
         <association property="region" javaType="Region" column="region_id"  select="com.dkd.manage.mapper.RegionMapper.selectRegionById"></association>

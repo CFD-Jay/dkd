@@ -59,7 +59,7 @@
 
     <el-table v-loading="loading" :data="regionList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="序号" type="index" align="center" prop="id" />
+      <el-table-column label="序号" type="index" align="center" prop="id" width="90" />
       <el-table-column label="区域名称" align="center" prop="regionName" />
       <el-table-column label="点位数" align="center" prop="nodeCount" />
       <el-table-column label="备注说明" align="center" prop="remark" />

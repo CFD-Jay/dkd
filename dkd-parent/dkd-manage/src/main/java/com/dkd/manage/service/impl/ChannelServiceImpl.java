@@ -2,6 +2,7 @@ package com.dkd.manage.service.impl;
 
 import java.util.List;
 import com.dkd.common.utils.DateUtils;
+import com.dkd.manage.domain.Vo.ChannelVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.dkd.manage.mapper.ChannelMapper;
@@ -15,7 +16,7 @@ import com.dkd.manage.service.IChannelService;
  * @date 2024-12-22
  */
 @Service
-public class ChannelServiceImpl implements IChannelService 
+public class ChannelServiceImpl implements IChannelService
 {
     @Autowired
     private ChannelMapper channelMapper;
@@ -98,4 +99,35 @@ public class ChannelServiceImpl implements IChannelService
     public int insertChannelBatch(List<Channel> channels) {
         return channelMapper.insertChannelBatch(channels);
     }
+
+    @Override
+    public Channel selectBySkuId(Long skuId) {
+        return null;
+    }
+
+
+    @Override
+    public int selectBySkuIds(Long[] skuId) {
+        return  channelMapper.selectBySkuIds(skuId);
+    }
+
+    @Override
+    public List<ChannelVo> selectChannelVoListByInnerCode(String innerCode) {
+        return  channelMapper.selectChannelVoListByInnerCode(innerCode);
+    }
+
+    @Override
+    public List<Channel> selectByInnerCode(String innerCode) {
+        return channelMapper.selectByInnerCode(innerCode);
+    }
+
+    @Override
+    public int updateChannelMessage(List<Channel>channels) {
+        return  channelMapper.updateChannelMessage(channels);
+    }
+
+
 }
+
+
+

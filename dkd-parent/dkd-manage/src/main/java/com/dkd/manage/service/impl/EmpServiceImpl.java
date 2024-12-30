@@ -105,4 +105,9 @@ public class EmpServiceImpl implements IEmpService
     {
         return empMapper.deleteEmpById(id);
     }
+
+    @Override
+    public List<Emp> selectEmpListByRegionIdAndRoleCode(String innerCode) {
+        return empMapper.selectEmpListByRegionIdAndRoleCode(innerCode);
+    }
 }

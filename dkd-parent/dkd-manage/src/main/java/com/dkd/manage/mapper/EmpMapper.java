@@ -58,4 +58,7 @@ public interface EmpMapper
      * @return 结果
      */
     public int deleteEmpByIds(Long[] ids);
+
+    List<Emp> selectEmpListByRegionIdAndRoleCode(String innerCode);
+
 }

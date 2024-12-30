@@ -125,4 +125,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <select id="selectRegionIdByInnerCode" resultType="com.dkd.manage.domain.VendingMachine">
+        select * from tb_vending_machine
+        where inner_code=#{innerCode}
+    </select>
+
+
 </mapper>

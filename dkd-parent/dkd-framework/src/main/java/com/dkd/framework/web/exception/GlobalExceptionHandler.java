@@ -101,6 +101,7 @@ public class GlobalExceptionHandler
     @ExceptionHandler(Exception.class)
     public AjaxResult handleException(Exception e, HttpServletRequest request)
     {
+        String message = e.getMessage();
         String requestURI = request.getRequestURI();
         log.error("请求地址'{}',发生系统异常.", requestURI, e);
         return AjaxResult.error(e.getMessage());
@@ -143,9 +144,25 @@ public class GlobalExceptionHandler
     @ExceptionHandler(DataIntegrityViolationException.class)
     public AjaxResult handleDataIntegrityViolationException(DataIntegrityViolationException e)
     {
+        String message = e.getMessage();
+        //当传入的excel中的商品类型id未在sku_class表存在。
+        if(e.getMessage().contains("Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'class_id' cannot be null"))
+        {
+            return AjaxResult.error("您的文件中商品类型数据有误");
+        }
+
+
+        if(e.getMessage().contains("Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'price' cannot be null"))
+        {
+            return AjaxResult.error("您的文件中商品价格数据有误");
+        }
         if(e.getMessage().contains("foreign"))
         {
             return AjaxResult.error("无法删除，有其他数据引用！");
+        }
+        if(e.getMessage().contains("Duplicate"))
+        {
+            return AjaxResult.error("无法保存，名称已存在");
         }
         return AjaxResult.error("数据完整性异常，请检查数据是否完整");
     }

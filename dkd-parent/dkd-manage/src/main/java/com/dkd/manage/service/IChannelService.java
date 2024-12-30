@@ -2,6 +2,7 @@ package com.dkd.manage.service;
 
 import java.util.List;
 import com.dkd.manage.domain.Channel;
+import com.dkd.manage.domain.Vo.ChannelVo;
 
 /**
  * 售货机货道Service接口
@@ -59,4 +60,17 @@ public interface IChannelService
      */
     public int deleteChannelById(Long id);
     int insertChannelBatch(List<Channel> channels);
+    Channel selectBySkuId(Long skuId);
+
+    int selectBySkuIds(Long[] skuId);
+
+    /**
+     * 嵌套查询
+     * @param innerCode
+     * @return
+     */
+    List<ChannelVo> selectChannelVoListByInnerCode(String innerCode);
+    List<Channel> selectByInnerCode(String innerCode);
+
+    int updateChannelMessage(List<Channel> channels);
 }

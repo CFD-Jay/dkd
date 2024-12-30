@@ -38,7 +38,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectEmpVo"/>
         where id = #{id}
     </select>
-        
+    <select id="selectEmpListByRegionIdAndRoleCode" resultType="com.dkd.manage.domain.Emp">
+        select * from tb_emp
+        where region_id=#{regionId} and role_code=#{roleCode}
+        and status=1
+    </select>
+
+
     <insert id="insertEmp" parameterType="Emp" useGeneratedKeys="true" keyProperty="id">
         insert into tb_emp
         <trim prefix="(" suffix=")" suffixOverrides=",">

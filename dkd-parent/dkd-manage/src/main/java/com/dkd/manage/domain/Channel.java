@@ -17,6 +17,7 @@ public class Channel extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
+//    private Long orginSkuId;
     /** 主键 */
     private Long id;
 

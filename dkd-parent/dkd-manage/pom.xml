@@ -22,6 +22,11 @@
             <groupId>com.dkd</groupId>
             <artifactId>dkd-framework</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dkd</groupId>
+            <artifactId>dkd-common</artifactId>
+
+        </dependency>
     </dependencies>
 
 </project>

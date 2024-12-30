@@ -58,4 +58,6 @@ public interface IEmpService
      * @return 结果
      */
     public int deleteEmpById(Long id);
+    List<Emp> selectEmpListByRegionIdAndRoleCode(String innerCode);
+
 }

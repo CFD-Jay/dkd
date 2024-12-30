@@ -1,5 +1,5 @@
 package com.dkd.common.utils.poi;
-
+import com.alibaba.excel.EasyExcel;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -1793,4 +1793,40 @@ public class ExcelUtil<T>
         }
         return method;
     }
-}
+
+
+
+
+    /**
+     * 对excel表单默认第一个索引名转换成list（EasyExcel）
+     *
+     * @param is 输入流
+     * @return 转换后集合
+     */
+
+
+    /**
+     *easyexcel 导入
+     * @param is
+     * @return
+     * @throws Exception
+     */
+    public List<T> importEasyExcel(InputStream is) throws Exception
+    {
+        return EasyExcel.read(is).head(clazz).sheet().doReadSync();
+    }
+
+    /**
+     * 对list数据源将其里面的数据导入到excel表单（EasyExcel）
+     *
+     * @param list 导出数据集合
+     * @param sheetName 工作表的名称
+     * @return 结果
+     */
+    public void exportEasyExcel(HttpServletResponse response,List<T> list, String sheetName) {
+        try {
+            EasyExcel.write(response.getOutputStream(),clazz).sheet(sheetName).doWrite(list);
+        } catch (IOException e) {
+            log.error("导出EasyExcel异常{}", e.getMessage());
+        }
+    }}

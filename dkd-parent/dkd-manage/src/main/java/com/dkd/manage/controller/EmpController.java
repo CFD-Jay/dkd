@@ -2,6 +2,9 @@ package com.dkd.manage.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.dkd.manage.domain.VendingMachine;
+import com.dkd.manage.service.IVendingMachineService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +37,8 @@ public class EmpController extends BaseController
     @Autowired
     private IEmpService empService;
 
+    @Autowired
+    private IVendingMachineService vendingMachineService;
     /**
      * 查询人员列表列表
      */
@@ -101,4 +106,19 @@ public class EmpController extends BaseController
     {
         return toAjax(empService.deleteEmpByIds(ids));
     }
+
+
+    @PreAuthorize("@ss.hasPermi('manage:emp:remove')")
+    @GetMapping("/businessList/{innerCode}")
+    public AjaxResult selectBusinessList(@PathVariable("innerCode") String innerCode)
+    {
+
+        return null;
+//    	VendingMachine vendingMachine =vendingMachineService.selectRegionIdByInnerCode(innerCode);
+//        Long regionId = vendingMachine.getRegionId();
+//
+
+
+    }
+
 }

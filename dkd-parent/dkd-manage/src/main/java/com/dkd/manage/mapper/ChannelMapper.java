@@ -2,6 +2,8 @@ package com.dkd.manage.mapper;
 
 import java.util.List;
 import com.dkd.manage.domain.Channel;
+import com.dkd.manage.domain.Vo.ChannelVo;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 售货机货道Mapper接口
@@ -59,4 +61,8 @@ public interface ChannelMapper
      */
     public int deleteChannelByIds(Long[] ids);
     int insertChannelBatch(List<Channel> channels);
+    int selectBySkuIds(Long[] skuId);
+    List<ChannelVo> selectChannelVoListByInnerCode(String channel);
+    int updateChannelMessage(List<Channel> channels);
+    List<Channel> selectByInnerCode(String innerCode);
 }

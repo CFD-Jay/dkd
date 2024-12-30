@@ -100,6 +100,7 @@
       <el-table-column label="详细地址" align="center" prop="addressDetail" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template #default="scope">
+          <el-button link type="primary"  @click="watchMessage(scope.row)" v-hasPermi="['manage:node:list']">查看详情</el-button>
           <el-button link type="primary"  @click="handleUpdate(scope.row)" v-hasPermi="['manage:node:edit']">修改</el-button>
           <el-button link type="primary"  @click="handleDelete(scope.row)" v-hasPermi="['manage:node:remove']">删除</el-button>
         </template>
@@ -169,6 +170,27 @@
         </div>
       </template>
     </el-dialog>
+
+    <!--查看详情-->
+    <el-dialog :title="title" v-model="watchMessageOpen" width="500px" append-to-body>
+        <el-table :data="vmList">
+          <el-table-column type="index" width="50" label="序号" align="center" />
+          <el-table-column label="设备编号" align="center" prop="innerCode" />
+          <!--@@@实现数据字典模板，注意还要在下面引用数据字典const { vm_status } = proxy.useDict('vm_status');-->
+          <el-table-column label="设备状态" align="center" prop="vmStatus">
+            <template #default="scope">
+              <dict-tag :options="vm_status" :value="scope.row.vmStatus"/>
+          </template>
+          </el-table-column>
+          <el-table-column label="最后一次供货时间" align="center" prop="lastSupplyTime">
+            <template #default="scope">
+              <!--@@@实现时间格式化-->
+              {{ parseTime(scope.row.lastSupplyTime,'{y}-{m}-{d} {h}:{i}:{s}')}}
+            </template>
+          </el-table-column>
+        </el-table>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -177,10 +199,14 @@ import { listNode, getNode, delNode, addNode, updateNode } from "@/api/manage/no
 import {listRegion} from "@/api/manage/region"
 import { listPartner } from "@/api/manage/partner";
 import { ref } from "vue";
-import { nodeListByRegionId } from "@/api/manage/node";
+import {listVm} from "@/api/manage/vm";
+
 const { proxy } = getCurrentInstance();
 const { business_type } = proxy.useDict('business_type');
+const { vm_status } = proxy.useDict('vm_status');
 import {loadAllParams} from "@/api/page";
+
+const watchMessageOpen = ref(false);
 const nodeList = ref([]);
 const open = ref(false);
 const loading = ref(true);
@@ -352,6 +378,20 @@ function handleDelete(row) {
     getList();
     proxy.$modal.msgSuccess("删除成功");
   }).catch(() => {});
+}
+
+const vmList = ref([]);
+/**查看详情 */
+function watchMessage(row) {
+  
+  watchMessageOpen.value=true;
+  title.value="点位详情";
+  loadAllParams.nodeId=row.id;
+  listVm(loadAllParams).then(response => {
+    vmList.value = response.rows;
+    total.value = response.total;
+  });
+  console.log(JSON.stringify(vmList, null, 2));
 }
 
 /** 导出按钮操作 */

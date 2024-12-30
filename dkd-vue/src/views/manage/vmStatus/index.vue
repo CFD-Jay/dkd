@@ -119,7 +119,7 @@
             <el-input v-model="form.channelMaxCapacity" disabled />
           </el-form-item>
   
-          <!--@@@通用模板-->
+ 
           <el-form-item label="合作商" prop="partnerId" v-if="!addOrEdit">
             <el-input
                 :value="partnerList.find(item => item.id === form.partnerId)?.partnerName || ''"

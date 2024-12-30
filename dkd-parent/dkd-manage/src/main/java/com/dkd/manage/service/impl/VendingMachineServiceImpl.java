@@ -100,4 +100,9 @@ public class VendingMachineServiceImpl implements IVendingMachineService
     {
         return vendingMachineMapper.deleteVendingMachineById(id);
     }
+
+    @Override
+    public VendingMachine selectRegionIdByInnerCode(String innerCode) {
+        return  vendingMachineMapper.selectRegionIdByInnerCode(innerCode);
+    }
 }

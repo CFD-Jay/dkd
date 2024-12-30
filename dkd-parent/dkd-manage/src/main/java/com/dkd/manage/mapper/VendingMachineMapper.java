@@ -1,6 +1,9 @@
 package com.dkd.manage.mapper;
 
+import java.time.temporal.ValueRange;
 import java.util.List;
+
+import com.dkd.manage.domain.Emp;
 import com.dkd.manage.domain.VendingMachine;
 
 /**
@@ -58,4 +61,6 @@ public interface VendingMachineMapper
      * @return 结果
      */
     public int deleteVendingMachineByIds(Long[] ids);
+
+    VendingMachine selectRegionIdByInnerCode(String innerCode);
 }
