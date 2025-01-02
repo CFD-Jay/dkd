@@ -1,6 +1,9 @@
 package com.dkd.manage.service.impl;
 
 import java.util.List;
+
+import com.dkd.common.constant.DkdContants;
+import com.dkd.common.exception.ServiceException;
 import com.dkd.common.utils.DateUtils;
 import com.dkd.manage.domain.Vo.TaskVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,9 +110,27 @@ public class TaskServiceImpl implements ITaskService
      */
     @Override
     public int insertTaskVo(TaskVo taskVo) {
-
-
-
         return 0;
+    }
+
+    @Override
+    public int cancelTask(Task task) {
+       //1.先检测工单是否可以取消，若订单状态已经是取消或者完成，就不能取消。
+        //如果订单已取消
+        Task taskDb=taskMapper.selectTaskByTaskId(task.getTaskId());
+        if(taskDb.getTaskStatus().equals(DkdContants.TASK_STATUS_CANCEL)){
+            throw  new ServiceException("订单已经取消，不能再次取消！");
+        }
+        if(taskDb.getTaskStatus().equals(DkdContants.TASK_STATUS_FINISH)){
+            throw  new ServiceException("订单已经完成，不能取消！");
+        }
+
+        //2.设置更新字段
+        task.setUpdateTime(DateUtils.getNowDate());
+        task.setTaskStatus(DkdContants.TASK_STATUS_CANCEL);
+
+        //3.更新数据库
+        return taskMapper.updateTask(task);//注意是task不是taskDb.
+
     }
 }

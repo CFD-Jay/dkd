@@ -75,4 +75,5 @@ public interface ITaskService
     int insertTaskVo(TaskVo taskVo);
 
 
+    int cancelTask(Task task);
 }

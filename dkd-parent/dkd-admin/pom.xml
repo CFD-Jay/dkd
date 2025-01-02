@@ -24,6 +24,11 @@
             <optional>true</optional> <!-- 表示依赖不会传递 -->
         </dependency>
 
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>3.0.3</version>
+        </dependency>
         <!-- swagger3-->
         <dependency>
             <groupId>io.springfox</groupId>

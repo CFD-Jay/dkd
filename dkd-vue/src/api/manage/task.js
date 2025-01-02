@@ -60,7 +60,7 @@ export function getBusinessList(innerCode) {
 // 查看工单补货详情
 export function getTaskDetails(taskId) {
   return request({
-    url: '/manage/taskDetails/byTaskId/' + taskId,
+    url: '/manage/task_details/byTaskId/' + taskId,
     method: 'get'
   })
 }
