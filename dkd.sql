@@ -11,7 +11,7 @@
  Target Server Version : 80022
  File Encoding         : 65001
 
- Date: 30/12/2024 11:41:49
+ Date: 02/01/2025 18:46:21
 */
 
 SET NAMES utf8mb4;
@@ -44,7 +44,7 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table
@@ -93,7 +93,7 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 124 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table_column
@@ -524,7 +524,7 @@ CREATE TABLE `sys_dict_data`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 109 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典数据表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典数据表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -590,7 +590,7 @@ CREATE TABLE `sys_dict_type`  (
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_id`) USING BTREE,
   UNIQUE INDEX `dict_type`(`dict_type`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典类型表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 104 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典类型表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_dict_type
@@ -676,7 +676,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status`) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 151 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 167 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -734,6 +734,24 @@ INSERT INTO `sys_logininfor` VALUES (149, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (150, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-29 17:22:11');
 INSERT INTO `sys_logininfor` VALUES (151, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-29 22:14:42');
 INSERT INTO `sys_logininfor` VALUES (152, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 11:33:17');
+INSERT INTO `sys_logininfor` VALUES (153, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '退出成功', '2024-12-30 11:46:13');
+INSERT INTO `sys_logininfor` VALUES (154, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 11:46:18');
+INSERT INTO `sys_logininfor` VALUES (155, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 16:32:40');
+INSERT INTO `sys_logininfor` VALUES (156, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '退出成功', '2024-12-30 16:41:48');
+INSERT INTO `sys_logininfor` VALUES (157, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 16:41:53');
+INSERT INTO `sys_logininfor` VALUES (158, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '退出成功', '2024-12-30 16:42:34');
+INSERT INTO `sys_logininfor` VALUES (159, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 16:42:38');
+INSERT INTO `sys_logininfor` VALUES (160, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '退出成功', '2024-12-30 16:46:00');
+INSERT INTO `sys_logininfor` VALUES (161, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 16:46:04');
+INSERT INTO `sys_logininfor` VALUES (162, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '1', '验证码已失效', '2024-12-30 17:18:42');
+INSERT INTO `sys_logininfor` VALUES (163, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 17:18:48');
+INSERT INTO `sys_logininfor` VALUES (164, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '1', '验证码错误', '2024-12-30 18:22:17');
+INSERT INTO `sys_logininfor` VALUES (165, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2024-12-30 18:22:20');
+INSERT INTO `sys_logininfor` VALUES (166, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2025-01-02 15:14:50');
+INSERT INTO `sys_logininfor` VALUES (167, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '退出成功', '2025-01-02 16:38:21');
+INSERT INTO `sys_logininfor` VALUES (168, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2025-01-02 16:38:29');
+INSERT INTO `sys_logininfor` VALUES (169, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '1', '验证码错误', '2025-01-02 17:39:02');
+INSERT INTO `sys_logininfor` VALUES (170, 'admin', '127.0.0.1', '内网IP', 'Chrome 13', 'Windows 10', '0', '登录成功', '2025-01-02 17:39:06');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -760,7 +778,7 @@ CREATE TABLE `sys_menu`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2060 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2063 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -964,7 +982,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type`) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status`) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 382 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 443 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -1286,6 +1304,52 @@ INSERT INTO `sys_oper_log` VALUES (413, '代码生成', 2, 'com.dkd.generator.co
 INSERT INTO `sys_oper_log` VALUES (414, '代码生成', 8, 'com.dkd.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', '研发部门', '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"tb_task_details,tb_job,tb_task,tb_task_type\"}', NULL, 0, NULL, '2024-12-29 18:17:27', 271);
 INSERT INTO `sys_oper_log` VALUES (415, '菜单管理', 1, 'com.dkd.web.controller.system.SysMenuController.add()', 'POST', 1, 'admin', '研发部门', '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"manage/task/business\",\"createBy\":\"admin\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuName\":\"运营工单\",\"menuType\":\"C\",\"orderNum\":1,\"params\":{},\"parentId\":2060,\"path\":\"business\",\"perms\":\"manage:task:list\",\"status\":\"0\",\"visible\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-12-29 18:22:16', 115);
 INSERT INTO `sys_oper_log` VALUES (416, '菜单管理', 1, 'com.dkd.web.controller.system.SysMenuController.add()', 'POST', 1, 'admin', '研发部门', '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"manage/task/operation\",\"createBy\":\"admin\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuName\":\"运维工单\",\"menuType\":\"C\",\"orderNum\":2,\"params\":{},\"parentId\":2060,\"path\":\"operation\",\"perms\":\"manage:task:list\",\"status\":\"0\",\"visible\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-12-29 18:23:27', 14);
+INSERT INTO `sys_oper_log` VALUES (417, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createTime\":\"2024-12-30 16:33:27\",\"createType\":1,\"desc\":\"1111\",\"innerCode\":\"vWgqPhpu\",\"params\":{},\"productTypeId\":2,\"userId\":6}', NULL, 1, '\r\n### Error updating database.  Cause: java.sql.SQLException: Field \'task_code\' doesn\'t have a default value\r\n### The error may exist in file [D:\\study\\ruoyi\\DKD\\dkd-parent\\dkd-manage\\target\\classes\\mapper\\manage\\TaskMapper.xml]\r\n### The error may involve com.dkd.manage.mapper.TaskMapper.insertTask-Inline\r\n### The error occurred while setting parameters\r\n### SQL: insert into tb_task          ( create_type,             inner_code,             user_id,                                       `desc`,             product_type_id,                                       create_time )           values ( ?,             ?,             ?,                                       ?,             ?,                                       ? )\r\n### Cause: java.sql.SQLException: Field \'task_code\' doesn\'t have a default value\n; Field \'task_code\' doesn\'t have a default value; nested exception is java.sql.SQLException: Field \'task_code\' doesn\'t have a default value', '2024-12-30 16:33:27', 56);
+INSERT INTO `sys_oper_log` VALUES (418, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createTime\":\"2024-12-30 16:36:42\",\"createType\":1,\"desc\":\"1111\",\"innerCode\":\"vWgqPhpu\",\"params\":{},\"productTypeId\":2,\"userId\":6}', NULL, 1, '\r\n### Error updating database.  Cause: java.sql.SQLException: Field \'task_code\' doesn\'t have a default value\r\n### The error may exist in file [D:\\study\\ruoyi\\DKD\\dkd-parent\\dkd-manage\\target\\classes\\mapper\\manage\\TaskMapper.xml]\r\n### The error may involve com.dkd.manage.mapper.TaskMapper.insertTask-Inline\r\n### The error occurred while setting parameters\r\n### SQL: insert into tb_task          ( create_type,             inner_code,             user_id,                                       `desc`,             product_type_id,                                       create_time )           values ( ?,             ?,             ?,                                       ?,             ?,                                       ? )\r\n### Cause: java.sql.SQLException: Field \'task_code\' doesn\'t have a default value\n; Field \'task_code\' doesn\'t have a default value; nested exception is java.sql.SQLException: Field \'task_code\' doesn\'t have a default value', '2024-12-30 16:36:43', 74632);
+INSERT INTO `sys_oper_log` VALUES (419, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createTime\":\"2024-12-30 16:38:21\",\"createType\":1,\"desc\":\"1111\",\"innerCode\":\"vWgqPhpu\",\"params\":{},\"productTypeId\":2,\"userId\":6}', NULL, 1, '\r\n### Error updating database.  Cause: java.sql.SQLException: Field \'task_code\' doesn\'t have a default value\r\n### The error may exist in file [D:\\study\\ruoyi\\DKD\\dkd-parent\\dkd-manage\\target\\classes\\mapper\\manage\\TaskMapper.xml]\r\n### The error may involve com.dkd.manage.mapper.TaskMapper.insertTask-Inline\r\n### The error occurred while setting parameters\r\n### SQL: insert into tb_task          ( create_type,             inner_code,             user_id,                                       `desc`,             product_type_id,                                       create_time )           values ( ?,             ?,             ?,                                       ?,             ?,                                       ? )\r\n### Cause: java.sql.SQLException: Field \'task_code\' doesn\'t have a default value\n; Field \'task_code\' doesn\'t have a default value; nested exception is java.sql.SQLException: Field \'task_code\' doesn\'t have a default value', '2024-12-30 16:38:21', 84672);
+INSERT INTO `sys_oper_log` VALUES (420, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1111\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":5,\"skuId\":1,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"1\"},{\"channelCode\":\"1-2\",\"expectCapacity\":5,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-3\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"1-4\",\"expectCapacity\":10,\"skuId\":8,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"44\"},{\"channelCode\":\"1-5\",\"expectCapacity\":10,\"skuId\":6,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"22\"}],\"innerCode\":\"vWgqPhpu\",\"userId\":6}', NULL, 0, NULL, '2024-12-30 16:41:22', 149426);
+INSERT INTO `sys_oper_log` VALUES (421, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1111\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":5,\"skuId\":1,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"1\"},{\"channelCode\":\"1-2\",\"expectCapacity\":5,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-3\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"1-4\",\"expectCapacity\":10,\"skuId\":8,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"44\"},{\"channelCode\":\"1-5\",\"expectCapacity\":10,\"skuId\":6,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"22\"}],\"innerCode\":\"vWgqPhpu\",\"userId\":6}', NULL, 0, NULL, '2024-12-30 16:41:48', 12903);
+INSERT INTO `sys_oper_log` VALUES (422, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"11\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":5,\"skuId\":1,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"1\"},{\"channelCode\":\"1-2\",\"expectCapacity\":5,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-3\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"1-4\",\"expectCapacity\":10,\"skuId\":8,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"44\"},{\"channelCode\":\"1-5\",\"expectCapacity\":10,\"skuId\":6,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"22\"}],\"innerCode\":\"vWgqPhpu\",\"userId\":6}', NULL, 1, 'class java.lang.String cannot be cast to class java.lang.Long (java.lang.String and java.lang.Long are in module java.base of loader \'bootstrap\')', '2024-12-30 16:42:48', 6);
+INSERT INTO `sys_oper_log` VALUES (423, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"11\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":5,\"skuId\":1,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"1\"},{\"channelCode\":\"1-2\",\"expectCapacity\":5,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-3\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"1-4\",\"expectCapacity\":10,\"skuId\":8,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"44\"},{\"channelCode\":\"1-5\",\"expectCapacity\":10,\"skuId\":6,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"22\"}],\"innerCode\":\"vWgqPhpu\",\"userId\":6}', NULL, 0, NULL, '2024-12-30 16:45:48', 141368);
+INSERT INTO `sys_oper_log` VALUES (424, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"11\",\"details\":[],\"innerCode\":\"A1000001\",\"userId\":2}', NULL, 0, NULL, '2024-12-30 17:19:06', 7);
+INSERT INTO `sys_oper_log` VALUES (425, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"11\",\"details\":[],\"innerCode\":\"A1000001\",\"userId\":2}', NULL, 0, NULL, '2024-12-30 17:19:42', 3);
+INSERT INTO `sys_oper_log` VALUES (426, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"11\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":2,\"skuId\":9,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"11111\"},{\"channelCode\":\"1-2\",\"expectCapacity\":8,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-3\",\"expectCapacity\":4,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-5\",\"expectCapacity\":1,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"1-6\",\"expectCapacity\":6,\"skuId\":4,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"4\"},{\"channelCode\":\"2-3\",\"expectCapacity\":10,\"skuId\":8,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"44\"},{\"channelCode\":\"2-4\",\"expectCapacity\":1,\"skuId\":9,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"11111\"},{\"channelCode\":\"2-5\",\"expectCapacity\":4,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"3-1\",\"expectCapacity\":5,\"skuId\":7,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"33\"},{\"channelCode\":\"4-1\",\"expectCapacity\":9,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"4-3\",\"expectCapacity\":4,\"skuId\":5,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"11\"}],\"innerCode\":\"A1000001\",\"userId\":2}', NULL, 0, NULL, '2024-12-30 17:20:09', 4);
+INSERT INTO `sys_oper_log` VALUES (427, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"11\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":5,\"skuId\":1,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"1\"},{\"channelCode\":\"1-2\",\"expectCapacity\":5,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-3\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"1-4\",\"expectCapacity\":10,\"skuId\":8,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"44\"},{\"channelCode\":\"1-5\",\"expectCapacity\":10,\"skuId\":6,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"22\"}],\"innerCode\":\"vWgqPhpu\",\"userId\":7}', NULL, 0, NULL, '2024-12-30 17:45:08', 1187619);
+INSERT INTO `sys_oper_log` VALUES (428, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"details\":[],\"innerCode\":\"vWgqPhpu\",\"productTypeId\":2,\"userId\":6}', NULL, 1, '补货工单详情不能为空！', '2024-12-30 18:22:42', 72);
+INSERT INTO `sys_oper_log` VALUES (429, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":5,\"skuId\":1,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"1\"},{\"channelCode\":\"1-2\",\"expectCapacity\":5,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"1-3\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"1-4\",\"expectCapacity\":10,\"skuId\":8,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"44\"},{\"channelCode\":\"1-5\",\"expectCapacity\":10,\"skuId\":6,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"22\"}],\"innerCode\":\"vWgqPhpu\",\"productTypeId\":2,\"userId\":6}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:22:46', 24);
+INSERT INTO `sys_oper_log` VALUES (430, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":1,\"userId\":9}', NULL, 1, '设备在运行中，不能进行投放操作！', '2024-12-30 18:25:19', 9);
+INSERT INTO `sys_oper_log` VALUES (431, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":3,\"userId\":9}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:25:25', 13);
+INSERT INTO `sys_oper_log` VALUES (432, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":3,\"userId\":8}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:25:35', 13);
+INSERT INTO `sys_oper_log` VALUES (433, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":3,\"userId\":8}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:25:57', 10);
+INSERT INTO `sys_oper_log` VALUES (434, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":3,\"userId\":8}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:30:25', 154);
+INSERT INTO `sys_oper_log` VALUES (435, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":3,\"userId\":9}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:30:45', 14);
+INSERT INTO `sys_oper_log` VALUES (436, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":1,\"userId\":8}', NULL, 1, '设备在运行中，不能进行投放操作！', '2024-12-30 18:33:09', 10);
+INSERT INTO `sys_oper_log` VALUES (437, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"1\",\"innerCode\":\"RhLWjaeR\",\"productTypeId\":3,\"userId\":8}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:33:12', 16);
+INSERT INTO `sys_oper_log` VALUES (438, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"1\",\"innerCode\":\"8vxxAklG\",\"productTypeId\":1,\"userId\":13}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:34:18', 10);
+INSERT INTO `sys_oper_log` VALUES (439, '售货机货道', 1, 'com.dkd.manage.controller.ChannelController.config()', 'PUT', 1, 'admin', '研发部门', '/manage/channel/config', '127.0.0.1', '内网IP', '{\"channelList\":[{\"channelCode\":\"1-1\",\"innerCode\":\"8vxxAklG\",\"params\":{},\"skuId\":2,\"updateTime\":\"2024-12-30 18:39:50\"},{\"channelCode\":\"1-2\",\"innerCode\":\"8vxxAklG\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-1\",\"innerCode\":\"8vxxAklG\",\"params\":{},\"skuId\":3},{\"channelCode\":\"2-2\",\"innerCode\":\"8vxxAklG\",\"params\":{},\"skuId\":9}],\"innerCode\":\"8vxxAklG\",\"params\":{}}', '{\"msg\":\"修改成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:39:50', 23);
+INSERT INTO `sys_oper_log` VALUES (440, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"`1\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":10,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"2-1\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"},{\"channelCode\":\"2-2\",\"expectCapacity\":10,\"skuId\":9,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"11111\"}],\"innerCode\":\"8vxxAklG\",\"productTypeId\":2,\"userId\":10}', NULL, 1, '设备不在运行中，不能进行补货操作！', '2024-12-30 18:40:03', 10);
+INSERT INTO `sys_oper_log` VALUES (441, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"1\",\"innerCode\":\"8vxxAklG\",\"productTypeId\":1,\"userId\":13}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:45:29', 169);
+INSERT INTO `sys_oper_log` VALUES (442, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"1\",\"innerCode\":\"8vxxAklG\",\"productTypeId\":1,\"userId\":13}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2024-12-30 18:47:15', 162);
+INSERT INTO `sys_oper_log` VALUES (443, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"1\",\"innerCode\":\"8vxxAklG\",\"productTypeId\":1,\"userId\":13}', NULL, 1, '该设备已存在待处理或未完成的工单', '2024-12-30 18:48:12', 61);
+INSERT INTO `sys_oper_log` VALUES (444, '工单', 2, 'com.dkd.manage.controller.TaskController.cancel()', 'PUT', 1, 'admin', '研发部门', '/manage/task/cancel', '127.0.0.1', '内网IP', '{\"desc\":\"后台工作人员取消\",\"params\":{},\"taskId\":545,\"taskStatus\":3,\"updateTime\":\"2025-01-02 15:39:02\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 15:39:02', 23);
+INSERT INTO `sys_oper_log` VALUES (445, '工单', 2, 'com.dkd.manage.controller.TaskController.cancel()', 'PUT', 1, 'admin', '研发部门', '/manage/task/cancel', '127.0.0.1', '内网IP', '{\"desc\":\"后台工作人员取消\",\"params\":{},\"taskId\":554,\"taskStatus\":3,\"updateTime\":\"2025-01-02 15:39:14\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 15:39:14', 15);
+INSERT INTO `sys_oper_log` VALUES (446, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"后台工作人员取消\",\"innerCode\":\"8vxxAklG\",\"productTypeId\":1,\"userId\":13}', NULL, 1, '该设备已存在待处理或未完成的工单', '2025-01-02 15:52:16', 60);
+INSERT INTO `sys_oper_log` VALUES (447, '工单', 2, 'com.dkd.manage.controller.TaskController.cancel()', 'PUT', 1, 'admin', '研发部门', '/manage/task/cancel', '127.0.0.1', '内网IP', '{\"desc\":\"后台工作人员取消\",\"params\":{},\"taskId\":553,\"taskStatus\":3,\"updateTime\":\"2025-01-02 15:52:23\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 15:52:23', 19);
+INSERT INTO `sys_oper_log` VALUES (448, '工单', 2, 'com.dkd.manage.controller.TaskController.cancel()', 'PUT', 1, 'admin', '研发部门', '/manage/task/cancel', '127.0.0.1', '内网IP', '{\"desc\":\"后台工作人员取消\",\"params\":{},\"taskId\":552,\"taskStatus\":3,\"updateTime\":\"2025-01-02 15:52:26\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 15:52:26', 11);
+INSERT INTO `sys_oper_log` VALUES (449, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"后台工作人员取消\",\"innerCode\":\"8vxxAklG\",\"productTypeId\":1,\"userId\":13}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2025-01-02 15:52:29', 21);
+INSERT INTO `sys_oper_log` VALUES (450, '设备管理', 1, 'com.dkd.manage.controller.VendingMachineController.add()', 'POST', 1, 'admin', '研发部门', '/manage/vm', '127.0.0.1', '内网IP', '{\"nodeId\":99,\"params\":{},\"vmTypeId\":1}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 17:39:16', 53);
+INSERT INTO `sys_oper_log` VALUES (451, '售货机货道', 1, 'com.dkd.manage.controller.ChannelController.config()', 'PUT', 1, 'admin', '研发部门', '/manage/channel/config', '127.0.0.1', '内网IP', '{\"channelList\":[{\"channelCode\":\"1-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-6\",\"innerCode\":\"BYRIIJM', '{\"msg\":\"修改成功！\",\"code\":200}', 0, NULL, '2025-01-02 17:39:22', 9);
+INSERT INTO `sys_oper_log` VALUES (452, '人员列表', 1, 'com.dkd.manage.controller.EmpController.add()', 'POST', 1, 'admin', '研发部门', '/manage/emp', '127.0.0.1', '内网IP', '{\"createTime\":\"2025-01-02 17:40:43\",\"id\":61,\"image\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2025/01/02/67765f18435f72c70f5eebce.jpg\",\"mobile\":\"11111111111\",\"params\":{},\"regionId\":2,\"regionName\":\"北京市海淀区9\",\"roleCode\":\"1003\",\"roleId\":3,\"roleName\":\"维修员\",\"status\":1,\"userName\":\"姚堪\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 17:40:43', 19);
+INSERT INTO `sys_oper_log` VALUES (453, '设备管理', 2, 'com.dkd.manage.controller.VendingMachineController.edit()', 'PUT', 1, 'admin', '研发部门', '/manage/vm', '127.0.0.1', '内网IP', '{\"addr\":\"北京市西城区西单北大街133号\",\"businessType\":3,\"channelMaxCapacity\":10,\"createBy\":\"admin\",\"createTime\":\"2024-12-15 18:23:13\",\"id\":120,\"innerCode\":\"BYRIIJMq\",\"lastSupplyTime\":\"2000-01-01 00:00:00\",\"latitude\":0,\"longitudes\":0,\"nodeId\":2,\"params\":{},\"partnerId\":1,\"regionId\":4,\"remark\":\"北京知名购物广场\",\"updateBy\":\"admin\",\"updateTime\":\"2025-01-02 17:45:53\",\"vmStatus\":0,\"vmTypeId\":1}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 17:45:53', 10);
+INSERT INTO `sys_oper_log` VALUES (454, '设备管理', 2, 'com.dkd.manage.controller.VendingMachineController.edit()', 'PUT', 1, 'admin', '研发部门', '/manage/vm', '127.0.0.1', '内网IP', '{\"addr\":\"北京市海淀区成府路45号\",\"businessType\":3,\"channelMaxCapacity\":10,\"createBy\":\"admin\",\"createTime\":\"2024-12-15 18:23:13\",\"id\":120,\"innerCode\":\"BYRIIJMq\",\"lastSupplyTime\":\"2000-01-01 00:00:00\",\"latitude\":0,\"longitudes\":0,\"nodeId\":99,\"params\":{},\"partnerId\":2,\"regionId\":2,\"remark\":\"大学城周边热门地点\",\"updateBy\":\"admin\",\"updateTime\":\"2025-01-02 17:48:19\",\"vmStatus\":0,\"vmTypeId\":1}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 17:48:19', 8);
+INSERT INTO `sys_oper_log` VALUES (455, '点位管理', 2, 'com.dkd.manage.controller.NodeController.edit()', 'PUT', 1, 'admin', '研发部门', '/manage/node', '127.0.0.1', '内网IP', '{\"addressDetail\":\"北京市海淀区成府路45号\",\"businessCircleType\":3,\"createBy\":\"admin\",\"createTime\":\"2024-12-15 18:23:13\",\"id\":99,\"nodeName\":\"五道口购物中心\",\"params\":{},\"partnerId\":2,\"regionId\":2,\"remark\":\"大学城周边热门地点\",\"updateBy\":\"admin\",\"updateTime\":\"2025-01-02 17:48:44\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 17:48:44', 9);
+INSERT INTO `sys_oper_log` VALUES (456, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"111\",\"innerCode\":\"BYRIIJMq\",\"productTypeId\":1,\"userId\":61}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2025-01-02 17:49:05', 53);
+INSERT INTO `sys_oper_log` VALUES (457, '售货机货道', 1, 'com.dkd.manage.controller.ChannelController.config()', 'PUT', 1, 'admin', '研发部门', '/manage/channel/config', '127.0.0.1', '内网IP', '{\"channelList\":[{\"channelCode\":\"1-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":1,\"updateTime\":\"2025-01-02 17:51:57\"},{\"channelCode\":\"1-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":2,\"updateTime\":\"2025-01-02 17:51:57\"},{\"channelCode\":\"1-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":3,\"updateTime\":\"2025-01-02 17:51:57\"},{\"channelCode\":\"2-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"c', '{\"msg\":\"修改成功！\",\"code\":200}', 0, NULL, '2025-01-02 17:51:57', 22);
+INSERT INTO `sys_oper_log` VALUES (458, '工单', 1, 'com.dkd.manage.controller.TaskController.add()', 'POST', 1, 'admin', '研发部门', '/manage/task', '127.0.0.1', '内网IP', '{\"assignorId\":1,\"createType\":1,\"desc\":\"11\",\"details\":[{\"channelCode\":\"1-1\",\"expectCapacity\":10,\"skuId\":1,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"1\"},{\"channelCode\":\"1-2\",\"expectCapacity\":10,\"skuId\":2,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg\",\"skuName\":\"2\"},{\"channelCode\":\"2-1\",\"expectCapacity\":10,\"skuId\":3,\"skuImage\":\"https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg\",\"skuName\":\"3\"}],\"innerCode\":\"BYRIIJMq\",\"productTypeId\":2,\"userId\":2}', '{\"msg\":\"添加成功！\",\"code\":200}', 0, NULL, '2025-01-02 17:52:16', 23);
+INSERT INTO `sys_oper_log` VALUES (459, '设备管理', 2, 'com.dkd.manage.controller.VendingMachineController.edit()', 'PUT', 1, 'admin', '研发部门', '/manage/vm', '127.0.0.1', '内网IP', '{\"addr\":\"北京市海淀区成府路45号\",\"businessType\":3,\"channelMaxCapacity\":10,\"createBy\":\"admin\",\"createTime\":\"2024-12-15 18:23:13\",\"id\":120,\"innerCode\":\"BYRIIJMq\",\"lastSupplyTime\":\"2025-01-02 17:53:39\",\"latitude\":0,\"longitudes\":0,\"nodeId\":99,\"params\":{},\"partnerId\":2,\"policyId\":9,\"regionId\":2,\"remark\":\"大学城周边热门地点\",\"updateBy\":\"admin\",\"updateTime\":\"2025-01-02 18:18:27\",\"vmStatus\":1,\"vmTypeId\":1}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 18:18:27', 11);
+INSERT INTO `sys_oper_log` VALUES (460, '设备管理', 2, 'com.dkd.manage.controller.VendingMachineController.edit()', 'PUT', 1, 'admin', '研发部门', '/manage/vm', '127.0.0.1', '内网IP', '{\"addr\":\"北京市西城区西单北大街133号\",\"businessType\":1,\"channelMaxCapacity\":8,\"createBy\":\"admin\",\"createTime\":\"2024-12-15 18:23:13\",\"id\":105,\"innerCode\":\"nf2UVwi5\",\"lastSupplyTime\":\"2000-01-01 00:00:00\",\"latitude\":0,\"longitudes\":0,\"nodeId\":2,\"params\":{},\"partnerId\":1,\"policyId\":1,\"regionId\":4,\"remark\":\"北京知名购物广场\",\"updateBy\":\"admin\",\"updateTime\":\"2025-01-02 18:18:49\",\"vmStatus\":0,\"vmTypeId\":4}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 18:18:49', 10);
+INSERT INTO `sys_oper_log` VALUES (461, '售货机货道', 1, 'com.dkd.manage.controller.ChannelController.config()', 'PUT', 1, 'admin', '研发部门', '/manage/channel/config', '127.0.0.1', '内网IP', '{\"channelList\":[{\"channelCode\":\"1-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":1},{\"channelCode\":\"1-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":2},{\"channelCode\":\"1-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"1-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":3},{\"channelCode\":\"2-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"2-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"3-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"4-6\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-1\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-2\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-3\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-4\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-5\",\"innerCode\":\"BYRIIJMq\",\"params\":{},\"skuId\":0},{\"channelCode\":\"5-6\",\"innerCode\":\"BYRIIJM', '{\"msg\":\"修改成功！\",\"code\":200}', 0, NULL, '2025-01-02 18:19:00', 4);
+INSERT INTO `sys_oper_log` VALUES (462, '设备管理', 2, 'com.dkd.manage.controller.VendingMachineController.edit()', 'PUT', 1, 'admin', '研发部门', '/manage/vm', '127.0.0.1', '内网IP', '{\"addr\":\"北京市海淀区成府路45号\",\"businessType\":3,\"channelMaxCapacity\":10,\"createBy\":\"admin\",\"createTime\":\"2024-12-15 18:23:13\",\"id\":120,\"innerCode\":\"BYRIIJMq\",\"lastSupplyTime\":\"2025-01-02 17:53:39\",\"latitude\":0,\"longitudes\":0,\"nodeId\":99,\"params\":{},\"partnerId\":2,\"policyId\":1,\"regionId\":2,\"remark\":\"大学城周边热门地点\",\"updateBy\":\"admin\",\"updateTime\":\"2025-01-02 18:19:04\",\"vmStatus\":1,\"vmTypeId\":1}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2025-01-02 18:19:04', 8);
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -1599,7 +1663,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-12-30 11:33:17', 'admin', '2024-12-15 11:32:43', '', '2024-12-30 11:33:17', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2025-01-02 17:39:07', 'admin', '2024-12-15 11:32:43', '', '2025-01-02 17:39:06', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-12-25 17:41:10', 'admin', '2024-12-15 11:32:43', '', '2024-12-25 17:41:10', '测试员');
 
 -- ----------------------------
@@ -1653,7 +1717,7 @@ CREATE TABLE `tb_channel`  (
   INDEX `channel_vendingmachine_Id_fk`(`vm_id`) USING BTREE,
   INDEX `tb_channel_inner_code_index`(`inner_code`) USING BTREE,
   CONSTRAINT `tb_channel_ibfk_1` FOREIGN KEY (`vm_id`) REFERENCES `tb_vending_machine` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 5291 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '售货机货道表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5290 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '售货机货道表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_channel
@@ -1936,10 +2000,40 @@ INSERT INTO `tb_channel` VALUES (5283, '4-1', 0, 118, '1YXEzg4x', 8, NULL, NULL,
 INSERT INTO `tb_channel` VALUES (5284, '4-2', 0, 118, '1YXEzg4x', 8, NULL, NULL, '2024-12-25 12:13:28', NULL);
 INSERT INTO `tb_channel` VALUES (5285, '4-3', 0, 118, '1YXEzg4x', 8, NULL, NULL, '2024-12-25 12:13:28', NULL);
 INSERT INTO `tb_channel` VALUES (5286, '4-4', 0, 118, '1YXEzg4x', 8, NULL, NULL, '2024-12-25 12:13:28', NULL);
-INSERT INTO `tb_channel` VALUES (5287, '1-1', 0, 119, '8vxxAklG', 10, NULL, NULL, '2024-12-25 12:13:51', '2024-12-29 17:46:37');
+INSERT INTO `tb_channel` VALUES (5287, '1-1', 2, 119, '8vxxAklG', 10, NULL, NULL, '2024-12-25 12:13:51', '2024-12-30 18:39:50');
 INSERT INTO `tb_channel` VALUES (5288, '1-2', 0, 119, '8vxxAklG', 10, NULL, NULL, '2024-12-25 12:13:51', '2024-12-29 17:53:56');
 INSERT INTO `tb_channel` VALUES (5289, '2-1', 3, 119, '8vxxAklG', 10, NULL, NULL, '2024-12-25 12:13:51', '2024-12-29 17:47:04');
 INSERT INTO `tb_channel` VALUES (5290, '2-2', 9, 119, '8vxxAklG', 10, NULL, NULL, '2024-12-25 12:13:51', '2024-12-29 17:54:01');
+INSERT INTO `tb_channel` VALUES (5291, '1-1', 1, 120, 'BYRIIJMq', 10, 10, '2025-01-02 17:53:39', '2025-01-02 17:39:16', '2025-01-02 17:53:39');
+INSERT INTO `tb_channel` VALUES (5292, '1-2', 2, 120, 'BYRIIJMq', 10, 10, '2025-01-02 17:53:39', '2025-01-02 17:39:16', '2025-01-02 17:53:39');
+INSERT INTO `tb_channel` VALUES (5293, '1-3', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5294, '1-4', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5295, '1-5', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5296, '1-6', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5297, '2-1', 3, 120, 'BYRIIJMq', 10, 10, '2025-01-02 17:53:39', '2025-01-02 17:39:16', '2025-01-02 17:53:39');
+INSERT INTO `tb_channel` VALUES (5298, '2-2', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5299, '2-3', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5300, '2-4', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5301, '2-5', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5302, '2-6', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5303, '3-1', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5304, '3-2', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5305, '3-3', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5306, '3-4', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5307, '3-5', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5308, '3-6', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5309, '4-1', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5310, '4-2', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5311, '4-3', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5312, '4-4', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5313, '4-5', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5314, '4-6', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5315, '5-1', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5316, '5-2', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5317, '5-3', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5318, '5-4', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5319, '5-5', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
+INSERT INTO `tb_channel` VALUES (5320, '5-6', 0, 120, 'BYRIIJMq', 10, NULL, NULL, '2025-01-02 17:39:16', NULL);
 
 -- ----------------------------
 -- Table structure for tb_emp
@@ -1988,6 +2082,7 @@ INSERT INTO `tb_emp` VALUES (51, '马超', 2, '北京市海淀区9', 3, '1003', 
 INSERT INTO `tb_emp` VALUES (52, '黄忠', 2, '北京市海淀区9', 2, '1002', '运营员', '13900005555', 'http://likede2-java.itheima.net/image/avatar.png', 1, '2024-06-10 15:06:58', '2024-06-10 16:11:31');
 INSERT INTO `tb_emp` VALUES (53, '测试员工', 1, '北京市朝阳区11', 1, '1001', '工单管理员', '15100000001', '/profile/upload/2024/05/18/4e7f3a15429bfda99bce42a18cdd1jpeg_20240518103539A002.jpeg', 1, '2024-06-10 15:06:58', '2024-06-10 16:11:33');
 INSERT INTO `tb_emp` VALUES (60, '要看', 3, '北京市西城区999', 2, '1002', '运营员', '16097621802', '/profile/upload/2024/12/18/71cf3bc79f3df8dc512544fc502cd5834710280d_20241218190240A001.jpeg', 1, '2024-12-18 19:02:43', '2024-12-18 19:02:54');
+INSERT INTO `tb_emp` VALUES (61, '姚堪', 2, '北京市海淀区9', 3, '1003', '维修员', '11111111111', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2025/01/02/67765f18435f72c70f5eebce.jpg', 1, '2025-01-02 17:40:43', '2025-01-02 17:40:43');
 
 -- ----------------------------
 -- Table structure for tb_job
@@ -2025,15 +2120,15 @@ CREATE TABLE `tb_node`  (
   INDEX `tb_node_ibfk_2`(`partner_id`) USING BTREE,
   CONSTRAINT `tb_node_ibfk_1` FOREIGN KEY (`region_id`) REFERENCES `tb_region` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `tb_node_ibfk_2` FOREIGN KEY (`partner_id`) REFERENCES `tb_partner` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录各个点位的具体信息及归属' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录各个点位的具体信息及归属' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_node
 -- ----------------------------
 INSERT INTO `tb_node` VALUES (1, '王府井商场', '北京市东城区王府井大街1号', 1, 3, 5, '2024-12-15 18:23:13', '2024-12-18 10:17:07', 'admin', 'admin', '北京著名购物区');
-INSERT INTO `tb_node` VALUES (2, '西单商场', '北京市西城区西单北大街133号', 1, 2, 1, '2024-12-15 18:23:13', '2024-12-15 18:23:13', 'admin', 'admin', '北京知名购物广场');
-INSERT INTO `tb_node` VALUES (3, '国贸商城', '北京市朝阳区建国门外大街1号', 2, 3, 2, '2024-12-15 18:23:13', '2024-12-15 18:23:13', 'admin', 'admin', '高档购物中心');
-INSERT INTO `tb_node` VALUES (99, '五道口购物中心', '北京市海淀区成府路45号', 3, 4, 2, '2024-12-15 18:23:13', '2024-12-18 12:01:21', 'admin', 'admin', '大学城周边热门地点');
+INSERT INTO `tb_node` VALUES (2, '西单商场', '北京市西城区西单北大街133号', 1, 4, 1, '2024-12-15 18:23:13', '2025-01-02 17:42:16', 'admin', 'admin', '北京知名购物广场');
+INSERT INTO `tb_node` VALUES (3, '国贸商城', '北京市朝阳区建国门外大街1号', 2, 1, 2, '2024-12-15 18:23:13', '2025-01-02 17:42:52', 'admin', 'admin', '高档购物中心');
+INSERT INTO `tb_node` VALUES (99, '五道口购物中心', '北京市海淀区成府路45号', 3, 2, 2, '2024-12-15 18:23:13', '2025-01-02 17:48:44', 'admin', 'admin', '大学城周边热门地点');
 
 -- ----------------------------
 -- Table structure for tb_order
@@ -2170,7 +2265,7 @@ CREATE TABLE `tb_partner`  (
   `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人',
   `remark` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理合作商及其相关信息' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理合作商及其相关信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_partner
@@ -2199,7 +2294,7 @@ CREATE TABLE `tb_policy`  (
   `update_time` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '修改时间',
   PRIMARY KEY (`policy_id`) USING BTREE,
   UNIQUE INDEX `tb_policy_policy_name_uindex`(`policy_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '策略表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '策略表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_policy
@@ -2223,7 +2318,7 @@ CREATE TABLE `tb_region`  (
   `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人',
   `remark` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储不同地理区域的信息' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储不同地理区域的信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_region
@@ -2253,7 +2348,7 @@ CREATE TABLE `tb_role`  (
   PRIMARY KEY (`role_id`) USING BTREE,
   UNIQUE INDEX `tb_role_role_code_uindex`(`role_code`) USING BTREE,
   UNIQUE INDEX `tb_role_role_name_uindex`(`role_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '工单角色表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '工单角色表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_role
@@ -2281,7 +2376,7 @@ CREATE TABLE `tb_sku`  (
   UNIQUE INDEX `tb_sku_sku_name_uindex`(`sku_name`) USING BTREE,
   INDEX `sku_sku_class_ClassId_fk`(`class_id`) USING BTREE,
   CONSTRAINT `tb_sku_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `tb_sku_class` (`class_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_sku
@@ -2306,7 +2401,7 @@ CREATE TABLE `tb_sku_class`  (
   `parent_id` int(0) NULL DEFAULT 0 COMMENT '上级id',
   PRIMARY KEY (`class_id`) USING BTREE,
   UNIQUE INDEX `tb_sku_class_class_name_uindex`(`class_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '商品类型表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '商品类型表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_sku_class
@@ -2336,7 +2431,7 @@ CREATE TABLE `tb_sku_copy1`  (
   UNIQUE INDEX `tb_sku_sku_name_uindex`(`sku_name`) USING BTREE,
   INDEX `sku_sku_class_ClassId_fk`(`class_id`) USING BTREE,
   CONSTRAINT `tb_sku_copy1_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `tb_sku_class` (`class_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_sku_copy1
@@ -2366,7 +2461,7 @@ CREATE TABLE `tb_task`  (
   INDEX `task_productiontype_TypeId_fk`(`product_type_id`) USING BTREE,
   INDEX `task_taskstatustype_StatusID_fk`(`task_status`) USING BTREE,
   INDEX `task_tasktype_TypeId_fk`(`create_type`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 544 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '工单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 555 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '工单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_task
@@ -2384,6 +2479,19 @@ INSERT INTO `tb_task` VALUES (533, '202309200001', 3, 1, 'RhLWjaeR', 8, '许褚'
 INSERT INTO `tb_task` VALUES (535, '202405170001', 4, 1, 'vWgqPhpu', 8, '许褚', 1, '不想干了', 1, 1, '北京市昌平区建材城西路22号', '2024-05-17 14:39:26', NULL);
 INSERT INTO `tb_task` VALUES (542, '202405180001', 4, 1, 'vWgqPhpu', 6, '曹操', 1, '卖完货了', 2, 1, '北京市昌平区建材城西路22号', '2024-05-18 15:13:05', NULL);
 INSERT INTO `tb_task` VALUES (543, '202405190001', 1, 1, 'K6YYXHLY', 13, '陆逊', 3, '', 1, 1, '北京顺义区国际鲜花港', '2024-05-19 18:45:06', '2024-05-19 21:13:16');
+INSERT INTO `tb_task` VALUES (545, '0002', 3, 1, 'vWgqPhpu', 6, '曹操', 1, '后台工作人员取消', 2, NULL, '北京市东城区王府井大街1号', '2024-12-30 18:22:46', '2025-01-02 15:39:03');
+INSERT INTO `tb_task` VALUES (546, '0003', 1, 1, 'RhLWjaeR', 9, '张辽', 1, '1', 3, NULL, '北京市东城区王府井大街1号', '2024-12-30 18:25:26', '2024-12-30 18:25:25');
+INSERT INTO `tb_task` VALUES (547, '0004', 1, 1, 'RhLWjaeR', 8, '许褚', 1, '1', 3, NULL, '北京市东城区王府井大街1号', '2024-12-30 18:25:36', '2024-12-30 18:25:35');
+INSERT INTO `tb_task` VALUES (548, '0005', 1, 1, 'RhLWjaeR', 8, '许褚', 1, '1', 3, NULL, '北京市东城区王府井大街1号', '2024-12-30 18:25:57', '2024-12-30 18:25:57');
+INSERT INTO `tb_task` VALUES (549, '202412300006', 1, 1, 'RhLWjaeR', 8, '许褚', 1, '1', 3, NULL, '北京市东城区王府井大街1号', '2024-12-30 18:30:25', '2024-12-30 18:30:25');
+INSERT INTO `tb_task` VALUES (550, '202412300007', 1, 1, 'RhLWjaeR', 9, '张辽', 1, '1', 3, NULL, '北京市东城区王府井大街1号', '2024-12-30 18:30:46', '2024-12-30 18:30:45');
+INSERT INTO `tb_task` VALUES (551, '202412300008', 1, 1, 'RhLWjaeR', 8, '许褚', 1, '1', 3, 1, '北京市东城区王府井大街1号', '2024-12-30 18:33:13', '2024-12-30 18:33:12');
+INSERT INTO `tb_task` VALUES (552, '202412300009', 3, 1, '8vxxAklG', 13, '陆逊', 3, '后台工作人员取消', 1, 1, '北京市东城区王府井大街1号', '2024-12-30 18:34:18', '2025-01-02 15:52:27');
+INSERT INTO `tb_task` VALUES (553, '202412300010', 3, 1, '8vxxAklG', 13, '陆逊', 3, '后台工作人员取消', 1, 1, '北京市东城区王府井大街1号', '2024-12-30 18:45:29', '2025-01-02 15:52:24');
+INSERT INTO `tb_task` VALUES (554, '202412300011', 3, 1, '8vxxAklG', 13, '陆逊', 3, '后台工作人员取消', 1, 1, '北京市东城区王府井大街1号', '2024-12-30 18:47:16', '2025-01-02 15:39:15');
+INSERT INTO `tb_task` VALUES (555, '202501020001', 1, 1, '8vxxAklG', 13, '陆逊', 3, '后台工作人员取消', 1, 1, '北京市东城区王府井大街1号', '2025-01-02 15:52:30', '2025-01-02 15:52:29');
+INSERT INTO `tb_task` VALUES (556, '202501020002', 4, 1, 'BYRIIJMq', 61, '姚堪', 2, '111', 1, 1, '北京市海淀区成府路45号', '2025-01-02 17:49:06', '2025-01-02 17:49:05');
+INSERT INTO `tb_task` VALUES (557, '202501020003', 4, 1, 'BYRIIJMq', 2, '刘备', 2, '11', 2, 1, '北京市海淀区成府路45号', '2025-01-02 17:52:17', '2025-01-02 17:52:16');
 
 -- ----------------------------
 -- Table structure for tb_task_collect
@@ -2419,7 +2527,7 @@ CREATE TABLE `tb_task_details`  (
   PRIMARY KEY (`details_id`) USING BTREE,
   INDEX `taskdetails_task_TaskId_fk`(`task_id`) USING BTREE,
   CONSTRAINT `taskdetails_task_TaskId_fk` FOREIGN KEY (`task_id`) REFERENCES `tb_task` (`task_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3770 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '工单详情，只有补货工单才有' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3774 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '工单详情，只有补货工单才有' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_task_details
@@ -2432,6 +2540,14 @@ INSERT INTO `tb_task_details` VALUES (3754, 526, '3-1', 1, 7, '一百橙汁', 'h
 INSERT INTO `tb_task_details` VALUES (3755, 526, '3-6', 10, 1, '可口可乐', 'https://likede2-java.itheima.net/image/product1.png');
 INSERT INTO `tb_task_details` VALUES (3768, 542, '1-1', 5, 1, '可口可乐', 'https://likede2-java.itheima.net/image/product1.png');
 INSERT INTO `tb_task_details` VALUES (3769, 542, '1-2', 5, 2, '康师傅', 'https://likede2-java.itheima.net/image/product2.png');
+INSERT INTO `tb_task_details` VALUES (3770, 545, '1-1', 5, 1, '1', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg');
+INSERT INTO `tb_task_details` VALUES (3771, 545, '1-2', 5, 2, '2', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg');
+INSERT INTO `tb_task_details` VALUES (3772, 545, '1-3', 10, 3, '3', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg');
+INSERT INTO `tb_task_details` VALUES (3773, 545, '1-4', 10, 8, '44', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg');
+INSERT INTO `tb_task_details` VALUES (3774, 545, '1-5', 10, 6, '22', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg');
+INSERT INTO `tb_task_details` VALUES (3775, 557, '1-1', 10, 1, '1', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg');
+INSERT INTO `tb_task_details` VALUES (3776, 557, '1-2', 10, 2, '2', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20451f054350e713373f.jpg');
+INSERT INTO `tb_task_details` VALUES (3777, 557, '2-1', 10, 3, '3', 'https://yk-dkd.oss-cn-beijing.aliyuncs.com/dkd_images/2024/12/26/676d20231f054350e713373e.jpg');
 
 -- ----------------------------
 -- Table structure for tb_task_type
@@ -2497,13 +2613,14 @@ INSERT INTO `tb_vending_machine` VALUES (90, 'RhLWjaeR', 10, 1, '北京市东城
 INSERT INTO `tb_vending_machine` VALUES (91, 'qUObmvbM', 10, 2, '北京市西城区西单北大街133号', '2022-12-06 00:00:00', 2, 5, 1, 2, 1, '{\"statusCode\":\"1001\",\"status\":true}', 0, 0, '34a1779725b4e06edd7cac8a518474f1', 2, '2020-12-18 10:39:22', '2024-05-14 09:25:11');
 INSERT INTO `tb_vending_machine` VALUES (92, 'tU6K5IHg', 10, 1, '北京市东城区王府井大街1号', '2000-01-01 00:00:00', 2, 1, 4, 2, 1, '{\"statusCode\":\"1001\",\"status\":true}', 0, 0, 'fbb7f7c0bfd38785866844f983b3a887', 5, '2020-09-10 09:41:02', '2024-05-14 09:25:14');
 INSERT INTO `tb_vending_machine` VALUES (93, 'iSzMcQXJ', 10, 1, '北京市东城区王府井大街1号', '2000-01-01 00:00:00', 2, 4, 5, 1, 1, '{\"statusCode\":\"1001\",\"status\":true}', 0, 0, '7c6f5ad6edd6e161d6ca8b94d0324fe5', 2, '2020-09-10 09:41:02', '2024-05-14 09:25:19');
-INSERT INTO `tb_vending_machine` VALUES (105, 'nf2UVwi5', 8, 2, '北京市西城区西单北大街133号', '2000-01-01 00:00:00', 1, 2, 1, 4, 0, NULL, 0, 0, NULL, 1, '2024-12-15 18:23:13', '2024-12-29 17:57:19');
+INSERT INTO `tb_vending_machine` VALUES (105, 'nf2UVwi5', 8, 2, '北京市西城区西单北大街133号', '2000-01-01 00:00:00', 1, 4, 1, 4, 0, NULL, 0, 0, NULL, 1, '2024-12-15 18:23:13', '2025-01-02 18:18:49');
 INSERT INTO `tb_vending_machine` VALUES (106, 'vWgqPhpu', 10, 1, '北京市东城区王府井大街1号', '2024-05-18 15:26:37', 2, 1, 4, 1, 1, NULL, 0, 0, NULL, NULL, '2020-09-10 09:41:02', '2024-05-12 23:20:41');
 INSERT INTO `tb_vending_machine` VALUES (107, 'SFNuCUe8', 8, 1, '北京市东城区王府井大街1号', '2000-01-01 00:00:00', 2, 1, 1, 4, 0, NULL, 0, 0, NULL, NULL, '2020-09-10 09:41:02', '2024-05-12 23:20:41');
 INSERT INTO `tb_vending_machine` VALUES (111, 'K6YYXHLY', 10, 2, '北京市西城区西单北大街133号', '2000-01-01 00:00:00', 1, 3, 2, 1, 0, '{\"statusCode\":\"1001\",\"status\":true}', 0, 0, NULL, NULL, '2020-12-18 15:48:13', '2024-05-19 15:32:27');
 INSERT INTO `tb_vending_machine` VALUES (117, 'rj4u9rdR', 10, 99, '北京市海淀区成府路45号', '2000-01-01 00:00:00', 1, 4, 2, 1, 0, NULL, 0, 0, NULL, NULL, '2024-12-15 18:23:13', '2024-12-23 18:55:28');
 INSERT INTO `tb_vending_machine` VALUES (118, '1YXEzg4x', 8, 1, '北京市东城区王府井大街1号', '2000-01-01 00:00:00', 1, 3, 5, 4, 0, NULL, 0, 0, NULL, NULL, '2024-12-25 12:13:28', '2024-12-25 12:13:28');
 INSERT INTO `tb_vending_machine` VALUES (119, '8vxxAklG', 10, 1, '北京市东城区王府井大街1号', '2000-01-01 00:00:00', 1, 3, 5, 2, 0, NULL, 0, 0, NULL, 2, '2024-12-15 18:23:13', '2024-12-29 17:57:14');
+INSERT INTO `tb_vending_machine` VALUES (120, 'BYRIIJMq', 10, 99, '北京市海淀区成府路45号', '2025-01-02 17:53:39', 3, 2, 2, 1, 1, NULL, 0, 0, NULL, 1, '2024-12-15 18:23:13', '2025-01-02 18:19:04');
 
 -- ----------------------------
 -- Table structure for tb_vendout_running
@@ -2549,7 +2666,7 @@ CREATE TABLE `tb_vm_type`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `tb_vm_type_name_uindex`(`name`) USING BTREE,
   UNIQUE INDEX `tb_vm_type_model_uindex`(`model`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备类型表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备类型表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_vm_type
